@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-  <script>
-    tinymce.init({
-      selector:'textarea',
-      plugins: 'tinymceS3ImageManager',
-      toolbar: 'tinymceS3ImageManager'
-    });
-  </script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.8.1/tinymce.min.js" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="../dist/tinymce-s-3-image-manager/plugin.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script>
+		tinymce.init({
+			selector:'textarea',
+		    toolbar: 'undo redo | styleselect | bullist numlist | link | code | tinymceS3ImageManager',
+			plugins: 'tinymceS3ImageManager code',
+			tinymceS3ImageManager_settings: {
+				aws_s3_options: {
+					// See https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
+					accessKeyId: '',
+					secretAccessKey: '',
+					region: "us-east-1"
+				},
+				aws_bucket: ""
+			}
+		});
+	</script>
 </head>
 <body>
   <textarea>Testing tinymceS3ImageManager</textarea>
+  <textarea>Testing tinymceS3ImageManager</textarea>
+
 </body>
 </html>
